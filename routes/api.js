@@ -1,34 +1,38 @@
 const router = require("express").Router();
 const Transaction = require("../models/transaction.js");
 
-router.post("/api/transaction", ({body}, res) => {
-  Transaction.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(404).json(err);
-    });
+router.post("/api/transaction", async ({body}, res) => {
+  try {
+    let data = await Transaction.create(body)
+    res.json(data)
+
+  } catch (error) {
+    console.log(error)
+    res.send(error)
+  }
 });
 
-router.post("/api/transaction/bulk", ({body}, res) => {
-  Transaction.insertMany(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(404).json(err);
-    });
+router.post("/api/transaction/bulk", async ({body}, res) => {
+  try {
+    let data = await Transaction.insertMany(body)
+    res.json(data)
+  
+  } catch (error) {
+    console.log(error)
+    res.send(error)
+  }
+
 });
 
-router.get("/api/transaction", (req, res) => {
-  Transaction.find({}).sort({date: -1})
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(404).json(err);
-    });
+router.get("/api/transaction", async (req, res) => {
+  try {
+    let data = await Transaction.find({}).sort({date: -1})
+    res.json(data)
+    
+  } catch (error) {
+    console.log(error)
+    res.send(error)
+  }
 });
 
 module.exports = router;
