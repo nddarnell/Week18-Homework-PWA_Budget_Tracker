@@ -12,3 +12,9 @@ request.onsuccess = (event)=>{
 request.onerror = (event)=>{
   console.log(event.target.errorCode);
 }
+
+request.onupgradeneeded = (event)=>{
+  const db = event.target.result;
+  db.createObjectStore("pending", { autoIncrement: true });
+
+}
