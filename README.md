@@ -1,10 +1,13 @@
 
 # Budget Tracker
+
+## Deployed Link
         
+
         
 ## Description
         
-    Budget Tracker utilizes indexedDB to allow the user to track their expenses and deposits anytime and anywhere
+Budget Tracker utilizes indexedDB to allow the user to track their expenses and deposits anytime and anywhere
         
 ## Table
         
