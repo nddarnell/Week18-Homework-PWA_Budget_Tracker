@@ -5,11 +5,13 @@ request.onsuccess = (event)=>{
     db = event.target.result
     if(navigator.onLine){
         checkDatabase()
+        console.log("Successfully connected!")
     }
 }
 
 request.onerror = (event)=>{
-  console.log(event.target.errorCode);
+  console.log(`Error upon load: ${event.target.errorCode}`);
+  
 }
 
 request.onupgradeneeded = (event)=>{
@@ -28,7 +30,7 @@ function checkDatabase() {
     const store = transaction.objectStore("pending");
     const getAll = store.getAll();
   
-    getAll.onsuccess = function() {
+    getAll.onsuccess = ()=> {
       if (getAll.result.length > 0) {
         fetch("/api/transaction/bulk", {
           method: "POST",
