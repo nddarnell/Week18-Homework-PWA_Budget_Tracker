@@ -4,7 +4,7 @@ const request = indexedDB.open("budget", 1);
 request.onsuccess = (event)=>{
     db = event.target.result
     if(navigator.onLine){
-        checkDB()
+        checkDatabase()
     }
 }
 
