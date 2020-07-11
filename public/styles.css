@@ -8,6 +8,18 @@ button, input {
   font-family: Arial;
 }
 
+.butColorGreen{
+  background-color: greenyellow;
+}
+
+.butColorRed{
+  background-color: red;
+}
+
+.text-center{
+  text-align: center;
+}
+
 table {
   width: 100%;
 }

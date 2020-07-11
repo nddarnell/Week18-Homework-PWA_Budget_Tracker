@@ -69,9 +69,9 @@ function populateChart() {
     data: {
       labels,
       datasets: [{
-        label: "Total Over Time",
+        label: "Cumulative Cash Flow",
         fill: true,
-        backgroundColor: "#6666ff",
+        backgroundColor: "#E88D67",
         data
       }]
     }
